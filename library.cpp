@@ -249,6 +249,6 @@ int countNegative(int arr[], int size)
 
 int main()
 {
-  cout << isPrime(1);
+
   return 0;
 }
