@@ -263,6 +263,17 @@ void fillMatrixWithOrdered(int matrix[3][3], short rows, short cols)
   }
 }
 
+void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
+{
+  for (short i = 0; i < Rows; i++)
+  {
+    for (short j = 0; j < Cols; j++)
+    {
+      arr[i][j] = randomNumber(1, 100);
+    }
+  }
+}
+
 void printMatrix(int arr[3][3], short Rows, short Cols)
 {
   for (short i = 0; i < Rows; i++)
