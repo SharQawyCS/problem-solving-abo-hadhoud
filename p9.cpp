@@ -20,15 +20,27 @@ void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols)
   }
 }
 
-void multiplyMatrices(int arr1[3][3], int arr2[3][3], int result[3][3], short rows, short cols)
+void getMids(int matrix[3][3], int midRow[3], int midCol[3], short rows, short cols)
 {
-  for (int i = 0; i < rows; ++i)
+  const short midRowIndex = rows / 2;
+  const short midColIndex = cols / 2;
+
+  for (int i = 0; i < cols; ++i)
   {
-    for (int j = 0; j < cols; ++j)
-    {
-      result[i][j] = arr1[i][j] * arr2[i][j];
-    }
+    midRow[i] = matrix[midRowIndex][i];
   }
+
+  for (int j = 0; j < cols; ++j)
+  {
+    midCol[j] = matrix[j][midColIndex];
+  }
+}
+
+void PrintArray(int arr[3], int arrLength)
+{
+  for (int i = 0; i < arrLength; i++)
+    cout << arr[i] << " ";
+  cout << "\n";
 }
 
 void printMatrix(int arr[3][3], short Rows, short Cols)
@@ -47,18 +59,15 @@ int main()
 {
   srand((unsigned)time(NULL));
 
-  int matrix1[3][3], matrix2[3][3], resultMatrix[3][3];
+  int matrix[3][3], midRow[3], midCol[3];
 
-  FillMatrixWithRandomNumbers(matrix1, 3, 3);
-  FillMatrixWithRandomNumbers(matrix2, 3, 3);
+  FillMatrixWithRandomNumbers(matrix, 3, 3);
+  printMatrix(matrix, 3, 3);
 
-  multiplyMatrices(matrix1, matrix2, resultMatrix, 3, 3);
+  getMids(matrix, midRow, midCol, 3, 3);
 
-  printMatrix(matrix1, 3, 3);
-  cout << endl;
-  printMatrix(matrix2, 3, 3);
-  cout << endl;
-  printMatrix(resultMatrix, 3, 3);
-  cout << endl;
+  PrintArray(midRow, 3);
+  PrintArray(midCol, 3);
+
   return 0;
 }
