@@ -600,6 +600,39 @@ char toggleCharCase(char c)
   return islower(c) ? toupper(c) : tolower(c);
 }
 
+int smallCount(string sentence)
+{
+  int smallCounter = 0;
+  for (int i = 0; i < sentence.length(); ++i)
+  {
+    if (islower(sentence[i]))
+    {
+      smallCounter++;
+    }
+  }
+  return smallCounter;
+}
+
+int capitalCount(string sentence)
+{
+  int capitalCounter = 0;
+  for (int i = 0; i < sentence.length(); ++i)
+  {
+    if (isupper(sentence[i]))
+    {
+      capitalCounter++;
+    }
+  }
+  return capitalCounter;
+}
+
+void countThenPrint(string s)
+{
+  cout << "String Length = " << s.length() << "\n";
+  cout << "Capital Letters Count = " << capitalCount(s) << "\n";
+  cout << "Small Letters Count = " << smallCount(s) << "\n";
+}
+
 int main()
 {
 
