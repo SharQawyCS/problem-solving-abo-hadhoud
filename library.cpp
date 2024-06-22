@@ -373,6 +373,42 @@ bool isScalarMatriox(int matrix[3][3], int rows, int cols)
   return true;
 }
 
+short countNumInMatrix(int matrix[3][3], short rows, short cols, int num)
+{
+  short counter = 0;
+  for (int i = 0; i < rows; ++i)
+  {
+    for (int j = 0; j < cols; ++j)
+    {
+      if (matrix[i][j] == num)
+      {
+        counter++;
+      }
+    }
+  }
+  return counter;
+}
+
+bool isSpareMatrix(int matrix[3][3], short rows, short cols)
+{
+  return (countNumInMatrix(matrix, rows, cols, 0) >= 0.5 * rows * cols);
+}
+
+bool isExistInMatrix(int matrix[3][3], short rows, short cols, int num)
+{
+  for (int i = 0; i < rows; ++i)
+  {
+    for (int j = 0; j < cols; ++j)
+    {
+      if (matrix[i][j] == num)
+      {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 int main()
 {
 
