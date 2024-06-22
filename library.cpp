@@ -646,6 +646,29 @@ int countLetter(string s, char c)
   return counter;
 }
 
+int countLetterMatchCase(string s, char c, bool matchCase = true)
+{
+  int counter = 0;
+  for (int i = 0; i < s.length(); ++i)
+  {
+    if (matchCase)
+    {
+      if (s[i] == c)
+      {
+        ++counter;
+      }
+    }
+    else
+    {
+      if (toupper(s[i]) == toupper(c))
+      {
+        ++counter;
+      }
+    }
+  }
+  return counter;
+}
+
 int main()
 {
 
