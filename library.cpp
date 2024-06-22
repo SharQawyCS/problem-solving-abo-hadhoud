@@ -742,6 +742,35 @@ int countWordsInString(string s)
   return counter;
 }
 
+string trimLeft(string s)
+{
+  for (int i = 0; i < s.length(); ++i)
+  {
+    if (s[i] != ' ')
+    {
+      return s.substr(i, s.length() - 1);
+    }
+  }
+  return s;
+}
+
+string trimRight(string s)
+{
+  for (int i = s.length() - 1; i >= 0; --i)
+  {
+    if (s[i] != ' ')
+    {
+      return s.substr(0, i + 1);
+    }
+  }
+  return s;
+}
+
+string trim(string s)
+{
+  return trimRight(trimLeft(s));
+}
+
 int main()
 {
 
