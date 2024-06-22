@@ -771,6 +771,32 @@ string trim(string s)
   return trimRight(trimLeft(s));
 }
 
+string joinString(string arr[], int length, string delim)
+{
+  string sentence;
+  for (int i = 0; i < length; ++i)
+  {
+    sentence += arr[i];
+    if (i < (length - 1))
+    {
+      sentence += delim;
+    }
+  }
+
+  return sentence;
+}
+
+string joinString(vector<string> vString, string delim)
+{
+  string sentence;
+  for (string &s : vString)
+  {
+    sentence += s + delim;
+  }
+  return sentence.substr(0, sentence.length() - delim.length());
+}
+
+//! /////////
 int main()
 {
 
