@@ -633,6 +633,19 @@ void countThenPrint(string s)
   cout << "Small Letters Count = " << smallCount(s) << "\n";
 }
 
+int countLetter(string s, char c)
+{
+  int counter = 0;
+  for (int i = 0; i < s.length(); ++i)
+  {
+    if (s[i] == c)
+    {
+      ++counter;
+    }
+  }
+  return counter;
+}
+
 int main()
 {
 
