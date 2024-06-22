@@ -669,6 +669,19 @@ int countLetterMatchCase(string s, char c, bool matchCase = true)
   return counter;
 }
 
+bool isVowel(char c)
+{
+  c = tolower(c);
+  if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 int main()
 {
 
