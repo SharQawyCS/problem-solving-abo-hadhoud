@@ -323,6 +323,31 @@ bool isMatricesEqual(int matrix1[3][3], int matrix2[3][3], short rows, short col
   }
 }
 
+bool isIdentityMatriox(int matrix[3][3], int rows, int cols)
+{
+  for (int i = 0; i < rows; ++i)
+  {
+    for (int j = 0; j < cols; ++j)
+    {
+      if (j == i)
+      {
+        if (matrix[i][j] != 1)
+        {
+          return false;
+        }
+      }
+      else
+      {
+        if (matrix[i][j] != 0)
+        {
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
+
 int main()
 {
 
