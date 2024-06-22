@@ -587,6 +587,19 @@ string uppercaseEntireString(string sentence)
   return sentence;
 }
 
+char readChar()
+{
+  char c;
+  cout << "Plz Enter Char: ";
+  cin >> c;
+  return c;
+}
+
+char toggleCharCase(char c)
+{
+  return islower(c) ? toupper(c) : tolower(c);
+}
+
 int main()
 {
 
