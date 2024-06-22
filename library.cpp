@@ -742,6 +742,30 @@ int countWordsInString(string s)
   return counter;
 }
 
+vector<string> splitString(string S1, string Delim)
+{
+  vector<string> vString;
+  short pos = 0;
+  string sWord; // define a string variable
+                // use find() function to get the position of the delimiters
+  while ((pos = S1.find(Delim)) != std::string::npos)
+  {
+    sWord = S1.substr(0, pos);
+    // store the word
+    if (sWord != "")
+    {
+      vString.push_back(sWord);
+    }
+    S1.erase(0, pos + Delim.length());
+    /* erase() until positon and move to next word. */
+  }
+  if (S1 != "")
+  {
+    vString.push_back(S1); // it adds last word of the string.
+  }
+  return vString;
+}
+
 string trimLeft(string s)
 {
   for (int i = 0; i < s.length(); ++i)
@@ -794,6 +818,17 @@ string joinString(vector<string> vString, string delim)
     sentence += s + delim;
   }
   return sentence.substr(0, sentence.length() - delim.length());
+}
+
+string reverseString(string str)
+{
+  vector<string> vString = splitString(str, " ");
+  string s;
+  for (int i = vString.size() - 1; i >= 0; --i)
+  {
+    s += vString[i] + " ";
+  }
+  return s;
 }
 
 //! /////////
