@@ -831,6 +831,69 @@ string reverseString(string str)
   return s;
 }
 
+string removePuncFromString(string s)
+{
+  string s2 = "";
+  for (int i = 0; i < s.length(); ++i)
+  {
+    if (!ispunct(s[i]))
+    {
+      s2 += s[i];
+    }
+  }
+  return s2;
+}
+
+//? Important
+
+struct stClient
+{
+  string accNum;
+  string pinCode;
+  string name;
+  string phone;
+  float accBalance;
+};
+
+string readString(string message)
+{
+  string s1;
+  cout << message;
+  getline(cin, s1);
+  return s1;
+}
+
+int readInt(string message)
+{
+  int num;
+  cout << message;
+  cin >> num;
+  return num;
+}
+
+string generateLineRecord(stClient client, string sep)
+{
+  string recored = client.accNum + sep;
+  recored += client.pinCode + sep;
+  recored += client.name + sep;
+  recored += client.phone + sep;
+  recored += to_string(client.accBalance);
+
+  return recored;
+}
+
+stClient readNewClient()
+{
+  stClient client;
+  client.accNum = readString("Plz enter account number: ");
+  client.pinCode = readString("plz enter pin Code: ");
+  client.name = readString("plz Enter ur name: ");
+  client.phone = readString("plz enter ur phone num: ");
+  client.accBalance = readInt("plz enter Account balance($): ");
+
+  return client;
+}
+
 //! /////////
 int main()
 {
