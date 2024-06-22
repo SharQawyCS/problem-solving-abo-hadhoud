@@ -20,7 +20,7 @@ string readString(string message)
   return s1;
 }
 
-int readInt(string message)
+int readFloat(string message)
 {
   int num;
   cout << message;
@@ -46,7 +46,7 @@ stClient readNewClient()
   client.pinCode = readString("plz enter pin Code: ");
   client.name = readString("plz Enter ur name: ");
   client.phone = readString("plz enter ur phone num: ");
-  client.accBalance = readInt("plz enter Account balance($): ");
+  client.accBalance = readFloat("plz enter Account balance($): ");
 
   return client;
 }

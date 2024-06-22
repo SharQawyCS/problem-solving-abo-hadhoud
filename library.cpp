@@ -863,7 +863,7 @@ string readString(string message)
   return s1;
 }
 
-int readInt(string message)
+int readFloat(string message)
 {
   int num;
   cout << message;
@@ -873,13 +873,13 @@ int readInt(string message)
 
 string generateLineFromRecord(stClient client, string sep)
 {
-  string recored = client.accNum + sep;
-  recored += client.pinCode + sep;
-  recored += client.name + sep;
-  recored += client.phone + sep;
-  recored += to_string(client.accBalance);
+  string line = client.accNum + sep;
+  line += client.pinCode + sep;
+  line += client.name + sep;
+  line += client.phone + sep;
+  line += to_string(client.accBalance);
 
-  return recored;
+  return line;
 }
 
 stClient readNewClient()
@@ -889,9 +889,32 @@ stClient readNewClient()
   client.pinCode = readString("plz enter pin Code: ");
   client.name = readString("plz Enter ur name: ");
   client.phone = readString("plz enter ur phone num: ");
-  client.accBalance = readInt("plz enter Account balance($): ");
+  client.accBalance = readFloat("plz enter Account balance($): ");
 
   return client;
+}
+
+stClient convertLineToRecored(string line, string sep)
+{
+  stClient client;
+  vector<string> clientData = splitString(line, sep);
+
+  client.accNum = clientData[0];
+  client.pinCode = clientData[1];
+  client.name = clientData[2];
+  client.phone = clientData[3];
+  client.accBalance = stof(clientData[4]);
+
+  return client;
+}
+
+void printClientData(stClient client)
+{
+  cout << "Account Number   : " << client.accNum << "\n";
+  cout << "Pin Code         : " << client.pinCode << "\n";
+  cout << "Member Name      : " << client.name << "\n";
+  cout << "Phone Number     : " << client.phone << "\n";
+  cout << "Total Balance    : " << client.accBalance << "\n";
 }
 
 //! /////////
