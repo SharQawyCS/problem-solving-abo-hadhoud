@@ -871,7 +871,7 @@ int readInt(string message)
   return num;
 }
 
-string generateLineRecord(stClient client, string sep)
+string generateLineFromRecord(stClient client, string sep)
 {
   string recored = client.accNum + sep;
   recored += client.pinCode + sep;
