@@ -569,6 +569,24 @@ string makeFirstLetterLowercase(string sentence)
   return sentence;
 }
 
+string lowercaseEntireString(string sentence)
+{
+  for (int i = 0; i < sentence.length(); ++i)
+  {
+    sentence[i] = lowercase(sentence[i]);
+  }
+  return sentence;
+}
+
+string uppercaseEntireString(string sentence)
+{
+  for (int i = 0; i < sentence.length(); ++i)
+  {
+    sentence[i] = uppercase(sentence[i]);
+  }
+  return sentence;
+}
+
 int main()
 {
 
