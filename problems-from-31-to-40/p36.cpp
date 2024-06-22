@@ -10,31 +10,32 @@ string readString()
   return s1;
 }
 
-void printEachWordOfString(string s)
+int countWordsInString(string s)
 {
   string space = " ";
-  cout << "\n Your String Words Are: \n";
   short pos = 0; // Position
   string word;
 
+  int counter = 0;
   while ((pos = s.find(space)) != std::string::npos)
   {
     word = s.substr(0, pos);
     if (word != "")
     {
-      cout << word << endl;
+      counter++;
     }
     s.erase(0, pos + space.length());
   }
 
   if (s != "")
   {
-    cout << s << endl;
+    counter++;
   }
+  return counter;
 }
 
 int main()
 {
-  printEachWordOfString(readString());
+  cout << countWordsInString(readString());
   return 0;
 }

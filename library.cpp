@@ -695,6 +695,53 @@ int countVowel(string s)
   return counter;
 }
 
+void printEachWordOfString(string s)
+{
+  string space = " ";
+  cout << "\n Your String Words Are: \n";
+  short pos = 0; // Position
+  string word;
+
+  while ((pos = s.find(space)) != std::string::npos)
+  {
+    word = s.substr(0, pos);
+    if (word != "")
+    {
+      cout << word << endl;
+    }
+    s.erase(0, pos + space.length());
+  }
+
+  if (s != "")
+  {
+    cout << s << endl;
+  }
+}
+
+int countWordsInString(string s)
+{
+  string space = " ";
+  short pos = 0; // Position
+  string word;
+
+  int counter = 0;
+  while ((pos = s.find(space)) != std::string::npos)
+  {
+    word = s.substr(0, pos);
+    if (word != "")
+    {
+      counter++;
+    }
+    s.erase(0, pos + space.length());
+  }
+
+  if (s != "")
+  {
+    counter++;
+  }
+  return counter;
+}
+
 int main()
 {
 
