@@ -682,6 +682,19 @@ bool isVowel(char c)
   }
 }
 
+int countVowel(string s)
+{
+  int counter = 0;
+  for (int i = 0; i < s.length(); ++i)
+  {
+    if (isVowel(s[i]))
+    {
+      ++counter;
+    }
+  }
+  return counter;
+}
+
 int main()
 {
 
