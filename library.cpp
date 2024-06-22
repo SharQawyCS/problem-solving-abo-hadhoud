@@ -471,8 +471,77 @@ bool isMatrixPalindrome(int matrix[3][3], short rows, short cols)
     }
     // }
   }
-
   return true;
+}
+
+void PrintFebSer(short num, int prev1, int prev2)
+{
+  int febNum = 0;
+  if (num > 0)
+  {
+    febNum = prev1 + prev2;
+    prev2 = prev1;
+    prev1 = febNum;
+    cout << febNum << "    ";
+    PrintFebSer(num - 1, prev1, prev2);
+  }
+}
+
+void printFebonacciUsingLoop(int num)
+{
+  int prev1 = 1, prev2 = 0;
+  for (int i = 2; i <= num; ++i)
+  {
+    int febNum = prev1 + prev2;
+    cout << febNum << "  ";
+    prev2 = prev1;
+    prev1 = febNum;
+  }
+}
+
+string readString()
+{
+  string s1;
+  cout << "Please Enter Your String:\n";
+  getline(cin, s1);
+  return s1;
+}
+
+void printFirstOfEachWord(string sentence)
+{
+  cout << sentence[0] << "\n";
+  for (int i = 0; i < sentence.length(); ++i)
+  {
+    if (sentence[i] == ' ')
+    {
+      cout << sentence[i + 1] << "\n";
+    }
+  }
+}
+
+char uppercase(char c)
+{
+  if (c > 96 && c < 123)
+  {
+    return (c - 32);
+  }
+  else
+  {
+    return c;
+  }
+}
+
+string makeFirstLetterUppercase(string sentence)
+{
+  sentence[0] = uppercase(sentence[0]);
+  for (int i = 0; i < sentence.length(); ++i)
+  {
+    if (sentence[i] == ' ')
+    {
+      sentence[i + 1] = uppercase(sentence[i + 1]);
+    }
+  }
+  return sentence;
 }
 
 int main()
